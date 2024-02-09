@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:insert="~{fragments/layout.html}">
+
+<main class="container-fluid py-5 m-0" th:fragment="content">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Department</li>
+            </ol>
+        </nav>
+        <div class="row g-5">
+            <div class="col-lg-12">
+
+                <h1 class="text-center text-uppercase my-3 pb-5">Agriculture and Horticulture</h1>
+
+                <div class="row ">
+                    <div class="col-sm-3  col-12">
+                        <div class="card bg-info">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/total_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Total Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="/dashboard/department/dashboardReport" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+
+<!--                        <div class="card bg-indigo bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 44</h2>-->
+<!--                                <p class="card-text text-white text-center">Total Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+                    </div>
+                    <div class="col-sm-3  col-12">
+<!--                        <div class="card bg-danger bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 30</h2>-->
+<!--                                <p class="card-text text-white text-center">Pending Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+
+                        <div class="card bg-danger">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/pending_application.png" alt="pending_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Pending Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+                    </div>
+                    <div class="col-sm-3  col-12">
+<!--                        <div class="card bg-success bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 6</h2>-->
+<!--                                <p class="card-text text-white text-center">Processed Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+                        <div class="card bg-success">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/processed_application.png" alt="pending_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Processed Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3  col-12">
+<!--                        <div class="card bg-info bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 8</h2>-->
+<!--                                <p class="card-text text-white text-center">Rejected Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+                        <div class="card bg-warning">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/rejected_application.png" alt="pending_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Rejected Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+
+                    </div>
+                </div>
+
+                <h3 class="mt-5 mb-3">Registration of Farmers and Issuance of Farmer ID Card
+                </h3>
+                <div class="row ">
+                    <div class="col-sm-3  col-12">
+                        <div class="card bg-info">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/total_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Total Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+
+                        <!--                        <div class="card bg-indigo bg-gradient">-->
+                        <!--                            <div class="card-body">-->
+                        <!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+                        <!--                                        aria-hidden="true"></i> 44</h2>-->
+                        <!--                                <p class="card-text text-white text-center">Total Applications</p>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+                        <!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+                        <!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+                        <!--                                    aria-hidden="true"></i> </div>-->
+                        <!--                        </div>-->
+                    </div>
+                    <div class="col-sm-3  col-12">
+                        <!--                        <div class="card bg-danger bg-gradient">-->
+                        <!--                            <div class="card-body">-->
+                        <!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+                        <!--                                        aria-hidden="true"></i> 30</h2>-->
+                        <!--                                <p class="card-text text-white text-center">Pending Applications</p>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+                        <!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+                        <!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+                        <!--                                    aria-hidden="true"></i> </div>-->
+                        <!--                        </div>-->
+
+                        <div class="card bg-danger">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/pending_application.png" alt="pending_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Pending Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+                    </div>
+                    <div class="col-sm-3  col-12">
+                        <!--                        <div class="card bg-success bg-gradient">-->
+                        <!--                            <div class="card-body">-->
+                        <!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+                        <!--                                        aria-hidden="true"></i> 6</h2>-->
+                        <!--                                <p class="card-text text-white text-center">Processed Applications</p>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+                        <!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+                        <!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+                        <!--                                    aria-hidden="true"></i> </div>-->
+                        <!--                        </div>-->
+                        <div class="card bg-success">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/processed_application.png" alt="pending_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Processed Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3  col-12">
+                        <!--                        <div class="card bg-info bg-gradient">-->
+                        <!--                            <div class="card-body">-->
+                        <!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+                        <!--                                        aria-hidden="true"></i> 8</h2>-->
+                        <!--                                <p class="card-text text-white text-center">Rejected Applications</p>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+                        <!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+                        <!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+                        <!--                                    aria-hidden="true"></i> </div>-->
+                        <!--                        </div>-->
+                        <div class="card bg-warning">
+                            <!--                                            <a href="" class="text-decoration-none">-->
+                            <div class="card-body">
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img src="/images/dashboard/rejected_application.png" alt="pending_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    </div>
+                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                    <div class="col-8">
+                                        <span class="d-inline-block mb-1 ms-4 w-100 fs-3 fw-bold text-white" >300</span>
+                                        <p class="card-text text-white text-center">Rejected Applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-white text-center bg-dark">
+                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <!--                                            </a>-->
+                        </div>
+
+                    </div>
+                </div>
+<!--                <div class="row ">-->
+<!--                    <div class="col-sm-3  col-12">-->
+<!--                        <div class="card bg-indigo bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 10</h2>-->
+<!--                                <p class="card-text text-white text-center">Total Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-3  col-12">-->
+<!--                        <div class="card bg-danger bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 4</h2>-->
+<!--                                <p class="card-text text-white text-center">Pending Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-3  col-12">-->
+<!--                        <div class="card bg-success bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 5</h2>-->
+<!--                                <p class="card-text text-white text-center">Processed Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-3  col-12">-->
+<!--                        <div class="card bg-info bg-gradient">-->
+<!--                            <div class="card-body">-->
+<!--                                <h2 class="card-title fw-bold fs-3 text-white"><i class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                        aria-hidden="true"></i> 1</h2>-->
+<!--                                <p class="card-text text-white text-center">Rejected Applications</p>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                        dashboard</span></a>More info <i class="fas fa-arrow-circle-right"-->
+<!--                                    aria-hidden="true"></i> </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+
+                <script>
+                    const ctx = document.getElementById('myChart');
+
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Purple', 'Red', 'Green', 'Light Blue'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [12, 19, 3, 5, 2, 3],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                x: {
+                                    stacked: true
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+</main>
+
+</html>

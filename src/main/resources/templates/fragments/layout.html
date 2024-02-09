@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Meghalaya Online</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <main class="container-fluid" style="min-height: 500px;">
+        <div th:replace="~{${view} :: content}"></div>
+    </main>
+    <!--
+    <br class="my-5" />
+    <br class="my-5" />
+    <br class="my-5" /> -->
+
+<!--    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background: rgb(237,114,133);-->
+<!--background: linear-gradient(90deg, rgba(237,114,133,1) 25%, rgba(44,72,190,1) 70%);">-->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bannerBackground">
+
+<!--    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background: rgb(78,167,121);-->
+<!--background: linear-gradient(90deg, rgba(78,167,121,1) 27%, rgba(60,52,52,1) 56%);">-->
+    <div class="container">
+            <a class="navbar-brand text-dark" href="/"> <img src="/images/logo.png" alt="Logo" height="40"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item  ps-3">
+                        <a class="nav-link" th:classappend="${servletPath == '/' ? 'active':''}" href="/">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item ps-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item text-white" href="#">Forest Department</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Mandate</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Organisational Structure</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Who's Who</a></li>
+                            <li><a class="dropdown-item text-white" href="#">RTI</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Contact us</a></li>
+<!--                            <li><hr class="dropdown-divider">Organisational Structure</li>-->
+<!--                            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                        </ul>
+                    </li>
+                    <li class="nav-item ps-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Forest
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item text-white" href="#">Overview</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Forest Cover</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Reserved Forest</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Forest Type</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Forest Fire</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Working Plans</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Sacred Groves</a></li>
+                            <!--                            <li><hr class="dropdown-divider">Organisational Structure</li>-->
+                            <!--                            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                        </ul>
+                    </li>
+                    <li class="nav-item ps-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Wildlife
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item text-white" href="#">Wildlife of Meghalaya</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Activities</a></li>
+                            <li><a class="dropdown-item text-white" href="#">National Parks & Sanctuaries</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Community Reserves</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Animal Rescue Centres</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Elephant Census</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Man-Animal Conflict</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Management Plans</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Eco-Sensitive Zones around PA</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Mini Zoos & Parks</a></li>
+                            <!--                            <li><hr class="dropdown-divider">Organisational Structure</li>-->
+                            <!--                            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                        </ul>
+                    </li>
+                    <li class="nav-item ps-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Social Forestry
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+
+
+                            <li><a class="dropdown-item text-white" href="#">Activities</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Joint Forest Management</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Green India Mission</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Eco-friendly Crematorium</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Parks & Gardens</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Cherry Blossom Festival</a></li>
+                            <!--                            <li><hr class="dropdown-divider">Organisational Structure</li>-->
+                            <!--                            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                        </ul>
+                    </li>
+
+                    <li class="nav-item  ps-3">
+                        <a class="nav-link" th:classappend="${servletPath == '/dashboard' ? 'active':''}"
+                           href="/dashboard">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item ps-3">
+                        <a class="nav-link" th:classappend="${servletPath == '/services' ? 'active':''}"
+                           href="/services">
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item ps-3">
+                        <a class="nav-link " th:classappend="${servletPath == '/contactus' ? 'active':''}"
+                           href="/contactus">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item ps-3">
+                        <a class="btn btn-success btn-outline-white " href="/login">Official Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="dropdown text-end">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" />
+                </a>
+                <ul class="dropdown-menu text-small">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            New project
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </nav>
+
+    <section id="clients" class="card py-3 mt-5">
+
+        <div class="container-fluid" data-aos="fade-up">
+
+            <h2 class="text-center">Important Links</h2>
+            <div class="clients-slider swiper my-3">
+                <div class="swiper-wrapper align-items-center mb-5">
+                    <div class="swiper-slide"><img src="/images/DigiLocker_S.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/Digital_India-Black.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/RTI-L.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/DigiLocker_S.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/Digital_India-Black.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/RTI-L.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/DigiLocker_S.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/Digital_India-Black.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/RTI-L.png" class="img-fluid" alt=""></div>
+                </div>
+                <div class="swiper-pagination mt-5"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper('.clients-slider', {
+            speed: 400,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            slidesPerView: 'auto',
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                480: {
+                    slidesPerView: 3,
+                    spaceBetween: 60
+                },
+                640: {
+                    slidesPerView: 4,
+                    spaceBetween: 80
+                },
+                992: {
+                    slidesPerView: 6,
+                    spaceBetween: 120
+                }
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center text-lg-start text-white mt-3 bannerBackground">
+
+
+        <!-- Section: Links  -->
+        <section class="pt-3 footer-pattern">
+            <div class="text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row m-5">
+                    <!-- Grid column -->
+                    <div class="col-md-5 col-lg-6 col-xl-5 mx-auto mb-4">
+                        <!-- Content -->
+                        <!-- <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>Online Services of Government of Meghalaya
+                        </h6> -->
+                        <img src="/images/logo.png" alt="" height="50">
+                        <p class="mt-5">
+                            Here you can use rows and columns to organize your footer content. Lorem ipsum
+                            dolor sit amet, consectetur adipisicing elit.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <!-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        Links
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Products
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Angular</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">React</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Vue</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Laravel</a>
+                        </p>
+                    </div> -->
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Useful links
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset text-decoration-none">meghalaya.gov.in</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset text-decoration-none">megedistrict.gov.in</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset text-decoration-none">megfarmer.gov.in</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset text-decoration-none">Help</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="fas fa-home me-3"></i> Shillong, Meghalaya, India</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            info@example.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <div class="text-center pt-4 pb-4 bg-black">
+                © 2023 Copyright:
+                <a class="text-white fw-bold text-decoration-none" href="https://meg.nic.in/">National Informatics
+                    Centre</a>
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <!--<script src="/node_modules/@popperjs/core/dist/cjs/popper.js"></script>-->
+
+    <!--Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        var onResize = function () {
+            // apply dynamic padding at the top of the body according to the fixed navbar height
+            $("body").css("padding-top", ($(".fixed-top").height() + 50));
+        };
+
+        // attach the function to the window resize event
+        $(window).resize(onResize);
+
+        // call it also when the page is ready after load or reload
+        $(function () {
+            onResize();
+        });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var aboutLink = document.getElementById("aboutLink");
+    var aboutSubMenu = document.getElementById("aboutSubMenu");
+
+    aboutLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Toggle submenu visibility
+        if (aboutSubMenu.style.display === "none") {
+            aboutSubMenu.style.display = "block";
+        } else {
+            aboutSubMenu.style.display = "none";
+        }
+    });
+});
+    </script>
+</body>
+
+</html>

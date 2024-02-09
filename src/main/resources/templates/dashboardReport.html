@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:insert="~{fragments/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--th:fragment="dashboardReport"-->
+<main class="container-fluid py-5 m-0" th:fragment="content">
+<!--    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--             Nav tabs -->
+<!--            <ul class="nav nav-tabs" role="tablist">-->
+<!--                <li class="active" style="width:25% !important">-->
+<!--                    <a href="#dept-tab" role="tab" data-toggle="tab">-->
+<!--                        Department-wise reports-->
+<!--                    </a>-->
+<!--                </li>-->
+
+<!--                <li style="width:25% !important;">-->
+<!--                    <a href="#service-tab" role="tab" data-toggle="tab" style="border-left: 1px solid #000 !important; border-right: 1px solid #000 !important">-->
+<!--                        Service-wise reports-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li style="width:25% !important">-->
+<!--                    <a href="#office-tab" role="tab" data-toggle="tab">-->
+<!--                        Office-wise reports-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li style="width:25% !important;">-->
+<!--                    <a href="aggrigated-dashboard" target="_blank" role="tab" style="border-left: 1px solid #000 !important; border-right: 1px solid #000 !important">-->
+<!--                        Aggregate Dashboard-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+<!--            &lt;!&ndash; Tab panes &ndash;&gt;-->
+<!--            <div class="tab-content">-->
+<!--                <div class="tab-pane fade active in" id="dept-tab" style="overflow: auto;">-->
+<!--                    <div class="table-filters">-->
+<!--                        <div class="filter-panel">-->
+<!--                            <div class="panel panel-default">-->
+<!--                                <div class="panel-body">-->
+<!--                                    <form class="form-inline dept-form" role="form">-->
+<!--                                        <div class="row" style="visibility: hidden;">-->
+<!--                                            <div class="col-sm-12">-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <label class="filter-col" for=""> Performance Criteria:-->
+<!--                                                    </label>-->
+<!--                                                    <select id="perfo_cri" class="form-control form-control-sm" type="date" name="perfo_cri">-->
+<!--                                                        <option value="0">All Departments</option>-->
+<!--                                                        <option value="1">Top Performing Departments-->
+<!--                                                        </option>-->
+<!--                                                        <option value="2">Bottom Performing Departments-->
+<!--                                                        </option>-->
+<!--                                                    </select>-->
+<!--                                                </div>-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <label class="filter-col" for="">From Date:-->
+<!--                                                    </label>-->
+<!--                                                    <input id="start_date" class="form-control form-control-sm" type="date" name="from_date" value="" />-->
+<!--                                                </div>-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <label class="filter-col" for="">To Date:-->
+<!--                                                    </label>-->
+<!--                                                    <input id="end_date" class="form-control form-control-sm" type="date" name="to_date" value="" />-->
+<!--                                                </div>-->
+<!--                                                <div class="form-group">-->
+<!--                                                    <button id="dept_refresh" type="button" class="btn btn-wine filter-col" onclick="performanceCriteria()">-->
+<!--                                                        <i class="fa fa-check"></i> Done-->
+<!--                                                    </button>-->
+<!--                                                    <a href=""><button class="btn btn-grey filter-col">-->
+<!--                                                        <i class="fa fa-refresh "></i> Reset-->
+<!--                                                    </button></a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+<!--                                        <input id="csrf" type="hidden" name="ci_csrf_token" value="" />-->
+<!--                                    </form>-->
+<!--                                    <table id="public-dashboard-table" class="table table-bordered table-hover table-striped" style="width:100%">-->
+<!--                                        <thead>-->
+<!--                                        <tr class="table-header">-->
+<!--                                            &lt;!&ndash; <th rowspan="3" style="text-align: center;">Slno</th> &ndash;&gt;-->
+<!--                                            <th rowspan="3" style="border-right:1px solid;">Department Name</th>-->
+<!--                                            &lt;!&ndash; <th colspan="9" style="text-align: center;">Applications-->
+<!--                                            </th> &ndash;&gt;-->
+<!--                                        </tr>-->
+<!--                                        <tr class="table-header">-->
+<!--                                            <th rowspan="2">Total Applications Received</th>-->
+<!--                                            <th colspan="3" style="text-align: center;">Approved</th>-->
+<!--                                            <th colspan="3" style="text-align: center;">Rejected</th>-->
+<!--                                            <th colspan="3" style="text-align: center;">Disposed</th>-->
+<!--                                            <th colspan="3" style="text-align: center;">Under Process With Officials-->
+<!--                                            </th>-->
+<!--                                            <th rowspan="2">Under Process With Applicant</th>-->
+<!--                                        </tr>-->
+<!--                                        <tr class="table-header">-->
+<!--                                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                                            </th>-->
+<!--                                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                                            </th>-->
+<!--                                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                                            </th>-->
+<!--                                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                                            </th>-->
+<!--                                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                                        </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tbody class="small-text"></tbody>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;End of #dept-tab&ndash;&gt;-->
+<!--                <div class="tab-pane fade" id="aggregate-tab">-->
+
+<!--                </div>-->
+<!--                &lt;!&ndash;End of #aggregate-tab&ndash;&gt;-->
+
+<!--                <div class="tab-pane fade" id="service-tab" style="overflow: auto;margin-top:20px;">-->
+<!--                    <table id="tableServiceWise" class="table table-bordered table-striped bg-secondary" style="width:100%">-->
+
+<!--                        <thead>-->
+<!--                        <tr class="table-header">-->
+<!--                            &lt;!&ndash; <th rowspan="3" style="text-align: center;">Slno</th> &ndash;&gt;-->
+<!--                            <th rowspan="3" style="border-right: 1px solid;">Service Name</th>-->
+<!--                            &lt;!&ndash; <th colspan="9" style="text-align: center;">Applications-->
+<!--                            </th> &ndash;&gt;-->
+<!--                        </tr>-->
+<!--                        <tr class="table-header">-->
+<!--                            <th rowspan="2">Total Applications Received</th>-->
+<!--                            <th colspan="3" style="text-align: center;">Approved</th>-->
+<!--                            <th colspan="3" style="text-align: center;">Rejected</th>-->
+<!--                            <th colspan="3" style="text-align: center;">Disposed</th>-->
+<!--                            &lt;!&ndash; <th rowspan="2">Disposed Within Time</th> &ndash;&gt;-->
+<!--                            <th colspan="3" style="text-align: center;">Under Process With Officials</th>-->
+<!--                            <th rowspan="2">Under Process With Applicant</th>-->
+<!--                        </tr>-->
+<!--                        <tr class="table-header">-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody class="small-text"></tbody>-->
+
+<!--                        </thead>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;End of #service-tab&ndash;&gt;-->
+
+<!--                <div class="tab-pane fade" id="office-tab" style="overflow: auto;margin-top:20px;">-->
+<!--                    <table id="tableOfficeWise" class="table table-bordered table-striped" style="width:100%;">-->
+<!--                        <thead>-->
+<!--                        <tr class="table-header">-->
+<!--                            <th rowspan="3" style="text-align: center;">Offices</th>-->
+<!--                            <th rowspan="3">District Name</th>-->
+<!--                            <th rowspan="3" style="border-right: 1px solid;">Department Name</th>-->
+<!--                            &lt;!&ndash; <th colspan="9" style="text-align: center;">Applications-->
+<!--                            </th> &ndash;&gt;-->
+<!--                        </tr>-->
+<!--                        <tr class="table-header">-->
+<!--                            <th rowspan="2">Total Applications Received</th>-->
+<!--                            <th colspan="3" style="text-align: center;">Approved</th>-->
+<!--                            <th colspan="3" style="text-align: center;">Rejected</th>-->
+<!--                            <th colspan="3" style="text-align: center;">Disposed</th>-->
+<!--                            <th colspan="3" style="text-align: center;">Under Process With Officials-->
+<!--                            </th>-->
+<!--                            <th rowspan="2">Under Process With Applicant-->
+<!--                            </th>-->
+<!--                        </tr>-->
+<!--                        <tr class="table-header">-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                            <th><span class="badge badge-warning">Total</span></th>-->
+<!--                            <th><span class="badge badge-success">Within Time</span>-->
+<!--                            </th>-->
+<!--                            <th><span class="badge badge-danger">Beyond Time</span></th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody class="small-text"></tbody>-->
+
+<!--                        </thead>-->
+<!--                        &lt;!&ndash; <thead>-->
+<!--                            <tr role="row">-->
+<!--                                <th>Offices</th>-->
+<!--                                <th>Departments</th>-->
+<!--                                <th>Applications Received </th>-->
+<!--                                <th>Applications Pending </th>-->
+<!--                                <th>Pending within Time </th>-->
+<!--                                <th>Applications Disposed</th>-->
+<!--                                <th>Timely Disposed </th>-->
+<!--                            </tr>-->
+<!--                        </thead> &ndash;&gt;-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;End of #office-tab&ndash;&gt;-->
+
+<!--            </div>-->
+<!--            &lt;!&ndash;End of .tab-content&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    -->
+    <div class="container ">
+<!--        border border-primary rounded-->
+        <div class="row">
+<!--            <div class="col-md-3 pt-5 pb-5 float-md-start ">-->
+<!--&lt;!&ndash;                border-end border-primary&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <select class="form-select form-select-lg bg-secondary text-white" aria-label="select example">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option selected>Open this select menu</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="1">Department-wise reports</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="2">Service-wise reports</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="3">Office-wise reports</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="4">Aggregate Dashboard</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                </select>&ndash;&gt;-->
+<!--                <div class="d-flex justify-content-center mb-2">-->
+<!--                    <button type="button" class="btn btn-success btn-lg w-100">Department-wise reports</button>-->
+<!--                </div>-->
+<!--                <div class=" d-flex justify-content-center mb-2 ">-->
+<!--                    <button type="button" class="btn btn-info btn-lg w-100 ">Service-wise reports</button>-->
+<!--                </div>-->
+<!--                <div class=" d-flex justify-content-center mb-2">-->
+<!--                    <button type="button" class="btn btn-danger btn-lg w-100 ">Office-wise reports</button>-->
+<!--                </div>-->
+<!--                <div class=" d-flex justify-content-center mb-2">-->
+<!--                    <button type="button" class="btn btn-dark btn-lg w-100 ">Aggregate Dashboard</button>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="col-md-12 pt-5  border border-secondary rounded">
+                <div class="text-center fs-1 fw-bolder text-success">Dashboard</div>
+                <div class="overflow-x-auto">
+                    <table id="" class="mt-5 table table-bordered border-secondary table-responsive" style="width:100%">
+                        <thead class="table-primary table-bordered border-secondary">
+                            <tr class="table-header">
+                                <th rowspan="3" >Department Name</th>
+                            </tr>
+                            <tr class="table-header">
+                                <th rowspan="2">Total Applications Received</th>
+                                <th colspan="3" style="text-align: center;">Approved</th>
+                                <th colspan="3" style="text-align: center;">Rejected</th>
+                                <th colspan="3" style="text-align: center;">Disposed</th>
+                                <th colspan="3" style="text-align: center;">Under Process With Officials
+                                </th>
+                                <th rowspan="2">Under Process With Applicant</th>
+                            </tr>
+                            <tr class="table-header text-center">
+                                <th>
+                                    <img src="/images/dashboard/total.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-white text-primary ps-4 pe-4">
+                                    Total
+                                </span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/within_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-success text-success">Within Time</span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/beyond_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-danger text-danger">Beyond Time</span>
+                                </th>
+
+                                <th >
+                                    <img src="/images/dashboard/total.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-warning text-primary">
+                                    Total
+                                </span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/within_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-success text-success">Within Time</span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/beyond_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-danger text-danger">Beyond Time</span>
+                                </th>
+
+                                <th >
+                                    <img src="/images/dashboard/total.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-warning text-primary">
+                                    Total
+                                </span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/within_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-success text-success">Within Time</span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/beyond_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-danger text-danger">Beyond Time</span>
+                                </th>
+
+                                <th >
+                                    <img src="/images/dashboard/total.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-warning text-primary">
+                                    Total
+                                </span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/within_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-success text-success">Within Time</span>
+                                </th>
+                                <th>
+                                    <img src="/images/dashboard/beyond_time.png" alt="total icon" class="reportImage rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                    <span class="badge badge-danger text-danger">Beyond Time</span>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table-white">
+                        <tr>
+                            <td><span class="badge badge-success text-success"></span>
+                            </td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                            <td><span class="badge badge-warning text-warning"></span></td>
+                            <td><span class="badge badge-success text-success"></span>
+                            </td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                            <td><span class="badge badge-warning text-warning"></span></td>
+                            <td><span class="badge badge-success text-success"></span>
+                            </td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                            <td><span class="badge badge-warning text-warning"></span></td>
+                            <td><span class="badge badge-success text-success"></span>
+                            </td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                            <td><span class="badge badge-danger text-danger"></span></td>
+                        </tr>
+                        </tbody>
+                        <tbody class="small-text"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--    <div class="container">-->
+<!--        <table id="" class=" text-center table table-bordered border-dark table-hover table-hover table-striped table-secondary" style="width:100%">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>-->
+<!--                    <a href="#dept-tab" class="text-decoration-none" role="tab" data-toggle="tab">-->
+<!--                        Department-wise reports-->
+<!--                    </a>-->
+<!--                </th>-->
+<!--                <th>-->
+<!--                    <a href="#service-tab" class="text-decoration-none" role="tab" data-toggle="tab" >-->
+<!--                        Service-wise reports-->
+<!--                    </a>-->
+<!--                </th>-->
+<!--                <th>-->
+<!--                    <a href="#office-tab" class="text-decoration-none" role="tab" data-toggle="tab">-->
+<!--                        Office-wise reports-->
+<!--                    </a>-->
+<!--                </th>-->
+<!--                <th>-->
+<!--                    <a href="#aggrigated-dashboard" class="text-decoration-none" target="_blank" role="tab" >-->
+<!--                        Aggregate Dashboard-->
+<!--                    </a>-->
+<!--                </th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--    <div class="container overflow-x-auto pt-3 border border-secondary rounded">-->
+
+
+<!--    </div>-->
+
+<!--    <script type="text/javascript">-->
+<!--        function addRows(){-->
+<!--            var table = document.getElementById('emptbl');-->
+<!--            var rowCount = table.rows.length;-->
+<!--            var cellCount = table.rows[0].cells.length;-->
+<!--            var row = table.insertRow(rowCount);-->
+<!--            for(var i =0; i <= cellCount; i++){-->
+<!--                var cell = 'cell'+i;-->
+<!--                cell = row.insertCell(i);-->
+<!--                var copycel = document.getElementById('col'+i).innerHTML;-->
+<!--                cell.innerHTML=copycel;-->
+<!--                if(i == 3){-->
+<!--                    var radioinput = document.getElementById('col3').getElementsByTagName('input');-->
+<!--                    for(var j = 0; j <= radioinput.length; j++) {-->
+<!--                        if(radioinput[j].type == 'radio') {-->
+<!--                            var rownum = rowCount;-->
+<!--                            radioinput[j].name = 'gender['+rownum+']';-->
+<!--                        }-->
+<!--                    }-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--        function deleteRows(){-->
+<!--            var table = document.getElementById('emptbl');-->
+<!--            var rowCount = table.rows.length;-->
+<!--            if(rowCount > '2'){-->
+<!--                var row = table.deleteRow(rowCount-1);-->
+<!--                rowCount&#45;&#45;;-->
+<!--            }-->
+<!--            else{-->
+<!--                alert('There should be atleast one row');-->
+<!--            }-->
+<!--        }-->
+
+<!--    </script>-->
+
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function() {-->
+<!--            function addRows() {-->
+<!--                var table = $('#emptbl');-->
+<!--                var rowCount = table.find('tr').length;-->
+<!--                var cellCount = table.find('tr:first td').length;-->
+<!--                var row = $('<tr></tr>').appendTo(table);-->
+
+<!--                for (var i = 0; i < cellCount; i++) {-->
+<!--                    var cell = $('<td></td>').appendTo(row);-->
+<!--                    var copyCell = $('#col' + i).html();-->
+<!--                    $(cell).html(copyCell);-->
+
+<!--                    if (i === 3) {-->
+<!--                        var radioInput = $('#col3').find('input[type="radio"]');-->
+<!--                        radioInput.each(function() {-->
+<!--                            var rownum = rowCount - 1;-->
+<!--                            $(this).attr('name', 'gender[' + rownum + ']');-->
+<!--                        });-->
+<!--                    }-->
+<!--                }-->
+<!--            }-->
+
+<!--            function deleteRows() {-->
+<!--                var table = $('#emptbl');-->
+<!--                var rowCount = table.find('tr').length;-->
+<!--                if (rowCount > 2) {-->
+<!--                    table.find('tr:last').remove();-->
+<!--                } else {-->
+<!--                    alert('There should be at least one row');-->
+<!--                }-->
+<!--            }-->
+
+<!--            // Event binding for addRows and deleteRows functions-->
+<!--            $('#addRowsBtn').click(addRows);-->
+<!--            $('#deleteRowsBtn').click(deleteRows);-->
+<!--        });-->
+<!--    </script>-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function addRows() {
+            var rowCount = $('#emptbl tr').length;
+            var row = $('#emptbl tr:last').clone(); // Clone the last row
+
+            // Update input names for radio buttons in the new row
+            row.find('input[type="radio"]').each(function () {
+                var rownum = rowCount;
+                $(this).attr('name', 'gender[' + rownum + ']');
+            });
+
+            $('#emptbl').append(row); // Append the cloned row to the table
+        }
+
+
+
+        function deleteRows() {
+            var rowCount = $('#emptbl tr').length;
+            if (rowCount > 2) {
+                $('#emptbl tr:last').remove();
+            } else {
+                alert('There should be at least one row');
+            }
+        }
+
+        $(document).ready(function() {
+    $('#myForm').submit(function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        var formData = {}; // Object to store form data
+
+        // Iterate through each row in the table
+        $('#emptbl tr:gt(0)').each(function(rowIndex) {
+            var row = $(this);
+            var rowData = {};
+
+            // Find input fields within each row and collect their values
+            row.find('input, select').each(function() {
+                var input = $(this);
+                var name = input.attr('name');
+                var value = input.val();
+
+                if (input.is(':radio')) {
+                    if (input.is(':checked')) {
+                        rowData[name] = value;
+                    }
+                } else {
+                    rowData[name] = value;
+                }
+            });
+
+            // Push each row's data into the formData object
+            formData['row' + rowIndex] = rowData;
+        });
+
+        // Display the collected form data (for demonstration purposes)
+        console.log(formData);
+
+        // Here, you can send the formData to the server using AJAX or perform any other action.
+        // Example: Send the form data to a server using AJAX
+        /*
+        $.ajax({
+            url: 'your_backend_endpoint',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                console.log('Form submitted successfully');
+                // Handle the server's response
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+                // Handle errors
+            }
+        });
+        */
+    });
+});
+
+
+    </script>
+
+    <form action="#" method="post">
+        <table id="emptbl">
+            <tr>
+                <th>Employee Name</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Gender</th>
+            </tr>
+            <tr>
+                <td id="col0"><input type="text" name="empname[]" value="" /></td>
+                <td id="col1"><input type="text" name="phone[]" value="" /></td>
+                <td id="col2">
+                    <select name="department[]" id="dept">
+                        <option value="0">Select Department</option>
+                        <option value="1">Sales</option>
+                        <option value="2">IT</option>
+                        <option value="3">Warehouse</option>
+                    </select>
+                </td>
+                <td id="col3">
+                    <input type="radio" name="gender[0]" value="male" />Male
+                    <input type="radio" name="gender[1]" value="female" />Female
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><input type="button" value="Add Row" onclick="addRows()" /></td>
+                <td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+
+
+</main>
+</body>
+</html>

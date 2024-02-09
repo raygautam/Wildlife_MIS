@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:insert="~{fragments/layout.html}">
+
+<main class="container-fluid p-0 m-0" th:fragment="content">
+
+    <div class="container my-5 py-5">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <div class="card-title text-white text-center">
+                    Track Services
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="row">
+                    <label for="appReferenceNum" class="col-sm-4 col-form-label">Application reference
+                        Number* :</label>
+                    <div class="col-sm-6 mb-3">
+                        <input type="text" class="form-control" id="appReferenceNum" name="">
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
+                    </div>
+                </div>
+                <div class="text-center">
+
+                    <div class="spinner-border text-primary" role="status" style="display: none;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+
+                <table class="table table-bordered mt-5 border-success" style="display: none;" id="personal_details">
+                    <thead>
+                        <tr>
+                            <th colspan="4" class="text-bold bg-success text-white text-center">Application tracking details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" class="w-50 text-start">
+                                <span class="fw-bold">Reference no. :</span>
+                                <span class="text-secondary fw-bold" id="referenceNo"></span>
+                            </td>
+                            <td colspan="2">
+                                <span class="fw-bold">Service Name :</span>
+                                <span class="text-secondary fw-bold" id="service_name"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Applicant Name</td>
+                            <td class="text-secondary fw-bold" id="beneficiary_name"> </td>
+                            <td class="fw-bold">Submitted on</td>
+                            <td class="text-secondary fw-bold" id="processed_on"> </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Stipulated Delivery Date</td>
+                            <td class="text-secondary fw-bold" id="appl_due_date"> </td>
+                            <td class="fw-bold">Current Status</td>
+                            <td class="fw-bold" id="applicant_status"></td>
+                        </tr>
+
+                        <!-- For APDCL application display Consumer No. & Application No. -->
+
+
+
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered mt-5 border-primary" style="display: none;" id="task_details">
+                    <thead>
+                        <tr>
+                            <th colspan="4" class="text-bold bg-primary text-white text-center">Application Processing History</th>
+                        </tr>
+
+                        <tr>
+                            <td class="fw-bold">Date and Time</td>
+                            <td class="fw-bold">Task Details</td>
+                            <td class="fw-bold">Remarks</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $(".spinner-border").hide();
+            $("#btnSubmit").click(function () {
+
+                if ($("#appReferenceNum").val() == "") {
+                    alert("Please enter reference number");
+                    return;
+                }
+                $("#personal_details").hide();
+                $("#task_details").hide();
+                $(".spinner-border").show();
+
+                var request_data = {
+                    referenceNo: $("#appReferenceNum").val()
+                };
+                debugger;
+                $.ajax({
+                    url: "http://10.179.2.82:8090/trackbyreferenceno",
+                    type: "POST",
+                    crossDomain: true,
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(request_data),
+                    success: function (data) {
+                        $(".spinner-border").hide();
+                        console.log(data);
+
+                        $("#personal_details").show();
+                        $("#task_details").show();
+                        $("#referenceNo").text(data[0].ref_no);
+                        $("#service_name").text(data[0].service_name);
+                        $("#beneficiary_name").text(data[0].beneficiary_name);
+                        $("#processed_on").text(data[0].processed_on);
+                        $("#application_date").text(data[0].application_date);
+                        $("#appl_due_date").text(data[0].appl_due_date);
+                        $("#applicant_status").html('<span class="' +
+                            (data[data.length - 1].final_status == "D" ? 'text-success' : 'text-danger') + '">'
+                            + data[data.length - 1].applicant_status + '</span>');
+
+
+                        $("#task_details tbody").html('');
+                        var tasks_html = "";
+<!--                        for (let i = 0; i < data.length; i++) {-->
+<!--                            tasks_html += "<tr>";-->
+<!--                            tasks_html += "<td class="text-secondary fw-bold">" + data[i].processed_on + "</td>";-->
+<!--                            tasks_html += "<td >" + data[i].task_name + "</td>";-->
+<!--                            tasks_html += "<td >" + data[i].applicant_status + "</td>";-->
+<!--                            tasks_html += "</tr>";-->
+<!--                        }-->
+for (let i = 0; i < data.length; i++) {
+    tasks_html += "<tr>";
+    tasks_html += "<td class='text-secondary fw-bold'>" + data[i].processed_on + "</td>";
+    tasks_html += "<td class='text-secondary fw-bold'>" + data[i].task_name + "</td>";
+    tasks_html += "<td class='text-secondary fw-bold'>" + data[i].applicant_status + "</td>";
+    tasks_html += "</tr>";
+}
+                        $("#task_details tbody").html(tasks_html);
+
+                    },
+                    error: function (response) {
+                        console.log(response);
+                        $(".spinner-border").hide();
+                    }
+                });
+
+                function convertdate(dateString) {
+                    var parts = dateString.split(/[\s/:]/);
+
+                    // parts[2] = year, parts[1] = month, parts[0] = day
+                    // parts[3] = hour, parts[4] = minute, parts[5] = second
+
+                    return new Date(
+                        parts[2], // year
+                        parts[1] - 1, // month (JavaScript months are zero-based)
+                        parts[0], // day
+                        parts[3], // hour
+                        parts[4], // minute
+                        parts[5] // second
+                    );
+                }
+            });
+        });
+
+    </script>
+</main>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:insert="~{fragments/layout.html}">
+
+<main class="container-fluid py-5 m-0 mandala-pattern" th:fragment="content">
+
+    <div class="container my-3 py-5">
+        <div class="row g-5">
+            <div class="col-md-6 mx-auto">
+
+                <div class="card rounded bg-white">
+                    <div class="card-header bg-dark bg-gradient">
+                        <div class="card-title my-3 text-white text-center">
+                            Login
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <form class="form mx-3 my-5" th:action="@{/login}" method="post">
+                            <!-- error message -->
+                            <div th:if="${param.error}">
+                                <div class="alert alert-danger">Invalid username or
+                                    password.</div>
+                            </div>
+
+                            <!-- logout message -->
+                            <div th:if="${param.logout}">
+                                <div class="alert alert-info">You have been logged out.</div>
+                            </div>
+
+                            <div class="form-group my-3">
+                                <!-- <label for="exampleInputEmail1" class="mb-2">Email address</label> -->
+                                <input type="text" class="form-rounded" id="uname" name="username"
+                                    aria-describedby="emailHelp" placeholder="enter your username" required>
+
+                            </div>
+                            <div class="form-group  my-3">
+                                <!-- <label for="exampleInputPassword1" class="mb-2">Password</label> -->
+                                <input type="password" class="form-rounded" id="pwd" name="password"
+                                    placeholder="enter your password" required>
+                            </div>
+                            <div class="text-center mt-5">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+</html>

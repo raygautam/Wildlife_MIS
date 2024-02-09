@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:insert="~{fragments/adminlayout.html}">
+
+<main class="container-fluid" th:fragment="content">
+
+    <div class="card mt-3 bg-white">
+        <div class="card-header">
+
+            <div class="card-title">
+                <span class="fw-bold">Services</span>
+                <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    New Service
+                </button>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog  modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Service</h1>
+<!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form mx-3 my-5" th:action="@{/secure/service}" th:object="${servicesDTO}"
+                                method="post">
+                                <!-- error message -->
+                                <div th:if="${param.error}">
+                                    <div class="alert alert-danger">Something went wrong.</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group my-3">
+                                            <label for="Department" class="mb-2">Department</label>
+
+                                            <select name="departmentId" id="Department" class="form-control" required>
+                                                <th:block th:each="department: ${departments}">
+                                                    <option th:value="${department.id}" th:text="${department.name}">
+                                                    </option>
+                                                </th:block>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group my-3">
+                                            <label for="ServiceType" class="mb-2">Service Type</label>
+
+                                            <select name="serviceTypeId" id="ServiceType" class="form-control" required>
+                                                <th:block th:each="servicetype: ${servicetypes}">
+                                                    <option th:value="${servicetype.id}" th:text="${servicetype.name}">
+                                                    </option>
+                                                </th:block>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group my-3">
+                                    <label for="name" class="mb-2">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" th:field="*{name}"
+                                        aria-describedby="name" placeholder="Please enter name of service" required />
+
+                                </div>
+
+                                <div class="form-group my-3">
+                                    <label for="url" class="mb-2">URL</label>
+                                    <input type="text" class="form-control" id="url" name="url" th:field="*{url}"
+                                        aria-describedby="name" placeholder="Please enter url of service" required />
+
+                                </div>
+
+                                <div class="form-group my-3">
+                                    <label for="guidelines" class="mb-2">Guidelines</label>
+                                    <textarea class="form-control summernote" id="guidelines" name="guidelines"
+                                        rows="10" required></textarea>
+                                </div>
+
+                                <div class="form-group my-3">
+                                    <label for="requirements" class="mb-2">Requirements</label>
+                                    <textarea class="form-control summernote" id="requirements" name="requirements"
+                                        rows="10" required></textarea>
+                                </div>
+
+                                <div class="text-center mt-5">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container ">
+                <div class="row mb-3">
+                    <div class="col-auto">
+                        <label for="departments" class="col-form-label">Department: </label>
+                    </div>
+                    <div class="col-auto">
+                        <select name="departments" class="form-control" id="departments">
+                            <option th:each="department,iteration : ${departments}" th:value="${department.id}"
+                                th:text="${department.name}">
+                            </option>
+                        </select>
+                    </div>
+
+
+                </div>
+                <div class="row">
+
+                    <div class="col-12">
+                        <!-- Tab content -->
+                        <div class="tab-content" id="v-pills-tabContent">
+
+                            <th:block th:each="department,iteration : ${departments}">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                                    <th:block th:each="service,iter : ${department.services}">
+                                        <div class="accordion-item border">
+                                            <h2 class="accordion-header">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="w-100">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                            data-bs-toggle="collapse" aria-expanded="false"
+                                                            th:utext="${service.name}"
+                                                            th:attr="aria-controls=${'service-collapse-'+service.id},data-bs-target=${'#service-collapse-'+service.id}">
+                                                            Application for Amendment in Dealers License
+                                                            Seeds –
+                                                            Wholesale
+                                                        </button>
+                                                    </div>
+                                                    <div class="py-1">
+                                                        <a class="btn btn-rounded btn-success float-end mx-3 my-auto"
+                                                            th:href="${service.url}">
+                                                            Apply</a>
+                                                    </div>
+                                                </div>
+                                            </h2>
+                                            <div th:attr="id=${'service-collapse-'+service.id}"
+                                                class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">
+                                                    <ul class="nav nav-tabs justify-content-start" id="myTab"
+                                                        role="tablist">
+
+
+                                                        <!-- Guidelines -->
+                                                        <li class="nav-item" role="presentation">
+
+                                                            <a class="nav-link active" data-bs-toggle="tab"
+                                                                type="button" role="tab"
+                                                                th:attr="aria-controls=${'service-guidelines-'+service.id},data-bs-target=${'#service-guidelines-'+service.id},id=${'service-guidelines-tab-'+service.id}"
+                                                                aria-selected="true">
+                                                                GUIDELINES </a>
+
+                                                        </li>
+
+                                                        <!-- Requirements -->
+                                                        <li class="nav-item" role="presentation">
+
+                                                            <a class="nav-link" data-bs-toggle="tab" type="button"
+                                                                role="tab"
+                                                                th:attr="aria-controls=${'service-requirments-'+service.id},data-bs-target=${'#service-requirments-'+service.id},id=${'service-requirments-tab-'+service.id}"
+                                                                aria-selected="false" tabindex="-1">
+                                                                REQUIREMENTS </a>
+
+
+                                                        </li>
+
+
+                                                        <!-- Important Documents, if any -->
+
+                                                        <!-- Service Related Notice, if any -->
+
+                                                        <div class="kys-tab tab-content" id="myTabContent">
+
+                                                            <div class="tab-pane fade show active py-3" role="tabpanel"
+                                                                th:attr="id=${'service-guidelines-'+service.id},aria-labelledby=${'service-guidelines-tab-'+service.id}"
+                                                                th:utext="${service.guidelines}">
+
+                                                            </div>
+
+                                                            <div class="tab-pane fade p-5" role="tabpanel"
+                                                                th:attr="id=${'service-requirments-'+service.id},aria-labelledby=${'service-requirments-tab-'+service.id}"
+                                                                th:utext="${service.requirements}">
+
+                                                            </div>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th:block>
+                                </div>
+                            </th:block>
+                        </div>
+                        <!-- Tab content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+</html>

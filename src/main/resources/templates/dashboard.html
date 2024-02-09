@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:insert="~{fragments/layout.html}">
+
+<main class="container-fluid py-5 m-0" th:fragment="content">
+
+<!--    <div class="container">-->
+<!--        <div class="row g-5">-->
+<!--            <div class="col-lg-12">-->
+
+<!--                <h1 class="text-center text-uppercase my-3 pb-5">Dashboard</h1>-->
+<!--                <div class="row">-->
+
+<!--                    <div class="col-3">-->
+<!--                        <div class="d-flex align-items-start">-->
+<!--                            &lt;!&ndash; Tab navs &ndash;&gt;-->
+<!--                            <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist"-->
+<!--                                aria-orientation="vertical">-->
+
+<!--                                <a href="#ANH" class="nav-link active" id="dept-0-tab" data-bs-toggle="pill"-->
+<!--                                    data-bs-target="#dept-0" role="tab" aria-controls="dept-0" aria-selected="false"-->
+<!--                                    tabindex="-1">Agriculture and Horticulture</a>-->
+
+
+<!--                                <a href="#AHNV" class="nav-link" id="dept-1-tab" data-bs-toggle="pill"-->
+<!--                                    data-bs-target="#dept-1" role="tab" aria-controls="dept-1" aria-selected="false"-->
+<!--                                    tabindex="-1">Animal Husbandry and Veterinary</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Tab navs &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="col-9">-->
+<!--                        &lt;!&ndash; Tab content &ndash;&gt;-->
+<!--                        <div class="tab-content" id="v-pills-tabContent">-->
+
+<!--                            <div class="tab-pane active" id="dept-0" role="tabpanel" aria-labelledby="dept-0-tab">-->
+<!--                                &lt;!&ndash; <h2 class="text-center text-uppercase mb-5">Service based Performance</h2> &ndash;&gt;-->
+<!--                                <div class="row ">-->
+<!--                                    <div class="col-sm-6 col-md-6 col-lg-3  col-11">-->
+<!--                                        <div class="card bg-dark bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-5 text-white"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i> 5</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Services</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a-->
+<!--                                                    href="/dashboard/department" class="stretched-link"><span-->
+<!--                                                        class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-6 col-md-6 col-lg-3  col-11">-->
+<!--                                        <div class="card bg-indigo bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-5 text-white"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i> 44</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-6 col-md-6 col-lg-3  col-11">-->
+<!--                                        <div class="card bg-danger bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-5 text-white"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i> 38</h2>-->
+<!--                                                <p class="card-text text-white text-center">Pending Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-6 col-md-6 col-lg-3  col-12">-->
+<!--                                        <div class="card bg-success bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold text-white fs-5"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i>6</h2>-->
+<!--                                                <p class="card-text text-white text-center p-0">Processed Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                                    class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="tab-pane fade" id="dept-1" role="tabpanel" aria-labelledby="dept-1-tab">-->
+<!--                                <div class="row ">-->
+<!--                                    <div class="col-sm-6 col-md-4 col-lg-3  col-11">-->
+<!--                                        <div class="card bg-dark bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-5 text-white"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i> 6</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Services</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a-->
+<!--                                                    href="/dashboard/department" class="stretched-link"><span-->
+<!--                                                    class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-6 col-md-4 col-lg-3  col-11">-->
+<!--                                        <div class="card bg-indigo bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-5 text-white"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i> 40</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                                                                                class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-6 col-md-4 col-lg-3  col-11">-->
+<!--                                        <div class="card bg-danger bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-5 text-white"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i> 30</h2>-->
+<!--                                                <p class="card-text text-white text-center">Pending Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                                                                                class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-sm-6 col-md-4 col-lg-3  col-12">-->
+<!--                                        <div class="card bg-success bg-gradient">-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold text-white fs-5"><i-->
+<!--                                                        class="fa fa-building-o d-inline d-sm-none"-->
+<!--                                                        aria-hidden="true"></i>8</h2>-->
+<!--                                                <p class="card-text text-white text-center fs-6 p-0">Processed Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center"> <a href="#myTabContent"-->
+<!--                                                                                                class="stretched-link"><span class="sr-only">Go to that-->
+<!--                                                        dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i> </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-12">
+
+                <h1 class="text-center text-uppercase my-3 pb-5">Dashboard</h1>
+                <div class="row">
+
+<!--                    <div class="col-md-3">-->
+<!--                        <div class="d-flex align-items-start">-->
+<!--                            &lt;!&ndash; Tab navs &ndash;&gt;-->
+<!--                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"-->
+<!--                                 aria-orientation="vertical">-->
+<!--                                <a href="#ANH" class="nav-link active" id="dept-0-tab" data-bs-toggle="pill"-->
+<!--                                   data-bs-target="#dept-0" role="tab" aria-controls="dept-0" aria-selected="true">Agriculture-->
+<!--                                    and Horticulture</a>-->
+<!--                                <a href="#AHNV" class="nav-link" id="dept-1-tab" data-bs-toggle="pill"-->
+<!--                                   data-bs-target="#dept-1" role="tab" aria-controls="dept-1" aria-selected="false">Animal-->
+<!--                                    Husbandry and Veterinary</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Tab navs &ndash;&gt;-->
+<!--                    </div>-->
+
+                    <div class="col-3 d-none d-lg-block">
+                        <div class="d-flex align-items-start">
+                            <!-- Tab navs -->
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
+                                <a href="#ANH" class="nav-link active" id="dept-0-tab" data-bs-toggle="pill"
+                                   data-bs-target="#dept-0" role="tab" aria-controls="dept-0" aria-selected="true">Agriculture
+                                    and Horticulture</a>
+                                <a href="#AHNV" class="nav-link" id="dept-1-tab" data-bs-toggle="pill"
+                                   data-bs-target="#dept-1" role="tab" aria-controls="dept-1" aria-selected="false">Animal
+                                    Husbandry and Veterinary</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu button for smaller devices (sm and xs) -->
+                    <div class="col-12  d-lg-none mb-3">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMenu"
+                                aria-expanded="false" aria-controls="collapseMenu">
+<!--                            <img src="/images/corporate.png" class="img-thumbnail w-25" alt="Corporate Icon"> Department-->
+                            <div class="icon-container">
+                                <img src="/images/corporate.png" class="img-thumbnail w-25 rounded-5" alt="Corporate Icon">
+                                 Department
+                            </div>
+                        </button>
+                        <div class="collapse" id="collapseMenu">
+                            <div class="card card-body">
+                                <!-- Tab navs for smaller devices -->
+                                <div class="nav flex-column nav-pills" id="v-pills-tab-sm" role="tablist"
+                                     aria-orientation="vertical">
+                                    <a href="#ANH" class="nav-link active" id="dept-0-tab-sm" data-bs-toggle="pill"
+                                       data-bs-target="#dept-0" role="tab" aria-controls="dept-0" aria-selected="true">Agriculture
+                                        and Horticulture</a>
+                                    <a href="#AHNV" class="nav-link" id="dept-1-tab-sm" data-bs-toggle="pill"
+                                       data-bs-target="#dept-1" role="tab" aria-controls="dept-1" aria-selected="false">Animal
+                                        Husbandry and Veterinary</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <!-- Tab content -->
+                        <div class="tab-content" id="v-pills-tabContent">
+
+                            <div class="tab-pane active" id="dept-0" role="tabpanel" aria-labelledby="dept-0-tab">
+                                <div class="row g-4">
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-dark bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-3 text-white">5</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Services</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="/dashboard/department" class="stretched-link"><span-->
+<!--                                                        class="sr-only">Go to that dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="col-md-4">
+                                        <div class="card bg-info">
+<!--                                            <a href="/dashboard/department" class="text-decoration-none">-->
+                                                <div class="card-body">
+                                                    <div class="row py-3">
+                                                        <div class="col-4">
+                                                            <img src="/images/dashboard/total_service.png" alt="total_service icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                        </div>
+                                                        <!--                                                        th:text="${totalCitizenService}"-->
+                                                        <div class="col-8">
+                                                            <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >20</span>
+                                                            <h6 class="ms-3 text-white">Total Services</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer text-white text-center bg-dark">
+                                                    <a href="/dashboard/department" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                                </div>
+<!--                                            </a>-->
+                                        </div>
+                                    </div>
+
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-indigo bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-3 text-white">44</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    <div class="col-md-4">
+                                        <div class="card bg-warning">
+                                            <!--                                            <a href="" class="text-decoration-none">-->
+                                            <div class="card-body">
+                                                <div class="row py-3">
+                                                    <div class="col-4">
+                                                        <img src="/images/dashboard/total_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                    </div>
+                                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                                    <div class="col-8">
+                                                        <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >100</span>
+                                                        <h6 class="ms-3 text-white">Total Applications</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-white text-center bg-dark">
+                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                            </div>
+                                            <!--                                            </a>-->
+                                        </div>
+                                    </div>
+
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-danger bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-3 text-white">38</h2>-->
+<!--                                                <p class="card-text text-white text-center">Pending Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    <div class="col-md-4">
+                                        <div class="card bg-danger">
+                                            <!--                                            <a href="" class="text-decoration-none">-->
+                                            <div class="card-body">
+                                                <div class="row py-3">
+                                                    <div class="col-4">
+                                                        <img src="/images/dashboard/pending_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                    </div>
+                                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                                    <div class="col-8">
+                                                        <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >500</span>
+                                                        <h6 class="ms-3 text-white">Pending Applications</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-white text-center bg-dark">
+                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                            </div>
+                                            <!--                                            </a>-->
+                                        </div>
+                                    </div>
+
+
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-success bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold text-white fs-3">6</h2>-->
+<!--                                                <p class="card-text text-white text-center p-0">Processed Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    <div class="col-md-4">
+                                        <div class="card bg-success">
+                                            <!--                                            <a href="" class="text-decoration-none">-->
+                                            <div class="card-body">
+                                                <div class="row py-3">
+                                                    <div class="col-4">
+                                                        <img src="/images/dashboard/processed_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                    </div>
+                                                    <!--                                                        th:text="${totalCitizenService}"-->
+                                                    <div class="col-8">
+                                                        <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >300</span>
+                                                        <h6 class="ms-3 text-white">Processed Applications</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-white text-center bg-dark">
+                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                            </div>
+                                            <!--                                            </a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="dept-1" role="tabpanel" aria-labelledby="dept-1-tab">
+                                <div class="row g-4">
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card">-->
+<!--                                            <a href="/citizenservices" class="text-decoration-none">-->
+<!--                                                <div class="card-body">-->
+<!--                                                    <div class="row py-3">-->
+<!--                                                        <div class="col-3">-->
+<!--                                                            <img src="/images/people.png" alt="business icon" class="img-fluid my-auto">-->
+<!--                                                        </div>-->
+<!--                                                        <div class="col-9">-->
+<!--&lt;!&ndash;                                                            th:text="${totalCitizenService}"&ndash;&gt;-->
+<!--                                                            <span class="d-inline-block mb-1 ms-3 w-100 fs-1 fw-bold text-dark" >52</span>-->
+<!--                                                            <h4 class="ms-3">Citizen Services</h4>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="col-md-4">
+                                        <div class="card bg-info">
+<!--                                            <a href="" class="text-decoration-none">-->
+                                                <div class="card-body">
+                                                    <div class="row py-3">
+                                                        <div class="col-4">
+                                                            <img src="/images/dashboard/total_service.png" alt="total_service icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                        </div>
+<!--                                                        th:text="${totalCitizenService}"-->
+                                                        <div class="col-8">
+                                                            <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >6</span>
+                                                            <h6 class="ms-3 text-white">Total Services</h6>
+                                                        </div>
+<!--                                                        <div class="col-8 pt-3 d-flex align-items-center">-->
+<!--                                                            <h4 class="ms-3">Total Services</h4>-->
+<!--                                                        </div>-->
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer text-white text-center bg-dark">
+                                                    <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                                </div>
+<!--                                            </a>-->
+                                        </div>
+                                    </div>
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-dark bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-3 text-white">6</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Services</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="/dashboard/department" class="stretched-link"><span-->
+<!--                                                        class="sr-only">Go to that dashboard</span></a>More info <i-->
+<!--                                                    class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    <div class="col-md-4">
+                                        <div class="card bg-warning">
+<!--                                            <a href="" class="text-decoration-none">-->
+                                                <div class="card-body">
+                                                    <div class="row py-3">
+                                                        <div class="col-4">
+                                                            <img src="/images/dashboard/total_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                        </div>
+                                                        <!--                                                        th:text="${totalCitizenService}"-->
+                                                        <div class="col-8">
+                                                            <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >500</span>
+                                                            <h6 class="ms-3 text-white">Total Applications</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer text-white text-center bg-dark">
+                                                    <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                                </div>
+<!--                                            </a>-->
+                                        </div>
+                                    </div>
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-indigo bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-3 text-white">50</h2>-->
+<!--                                                <p class="card-text text-white text-center">Total Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    <div class="col-md-4">
+                                        <div class="card bg-danger">
+<!--                                            <a href="" class="text-decoration-none">-->
+                                                <div class="card-body">
+                                                    <div class="row py-3">
+                                                        <div class="col-4">
+                                                            <img src="/images/dashboard/pending_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                        </div>
+                                                        <!--                                                        th:text="${totalCitizenService}"-->
+                                                        <div class="col-8">
+                                                            <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >250</span>
+                                                            <h6 class="ms-3 text-white">Pending Applications</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer text-white text-center bg-dark">
+                                                    <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                                </div>
+<!--                                            </a>-->
+                                        </div>
+                                    </div>
+
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-danger bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold fs-3 text-white">30</h2>-->
+<!--                                                <p class="card-text text-white text-center">Pending Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    <div class="col-md-4">
+                                        <div class="card bg-success">
+<!--                                            <a href="" class="text-decoration-none">-->
+                                                <div class="card-body">
+                                                    <div class="row py-3">
+                                                        <div class="col-4">
+                                                            <img src="/images/dashboard/processed_application.png" alt="total_application icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                                        </div>
+                                                        <!--                                                        th:text="${totalCitizenService}"-->
+                                                        <div class="col-8">
+                                                            <span class="d-inline-block mb-1 ms-3 w-100 fs-3 fw-bold text-white" >100</span>
+                                                            <h6 class="ms-3 text-white">Processed Applications</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer text-white text-center bg-dark">
+                                                    <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                                </div>
+<!--                                            </a>-->
+                                        </div>
+                                    </div>
+
+<!--                                    <div class="col-xs-4 col-md-6 col-lg-5 col-xl-4">-->
+<!--                                        <div class="card bg-success bg-gradient">-->
+<!--                                            &lt;!&ndash; Your content &ndash;&gt;-->
+<!--                                            <div class="card-body">-->
+<!--                                                <h2 class="card-title fw-bold text-white fs-3">18</h2>-->
+<!--                                                <p class="card-text text-white text-center p-0">Processed Applications</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="card-footer text-white text-center">-->
+<!--                                                <a href="#myTabContent" class="stretched-link"><span class="sr-only">Go to that dashboard</span></a>More info <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+</html>

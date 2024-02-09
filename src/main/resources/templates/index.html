@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:insert="~{fragments/layout.html}">
+    <main class="container-fluid  m-0 p-0" th:fragment="content">
+        <link href="/css/index.css" rel="stylesheet">
+
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="https://meghalaya.gov.in/sites/default/files/news_viewer/World_Youth_Skills_Day_2023.jpg"
+                         class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="https://meghalaya.gov.in/sites/default/files/news_viewer/Meghalaya_Education_Symposium_2023.jpg"
+                         class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://meghalaya.gov.in/sites/default/files/news_viewer/Govt_signs_series_of_MoUs_with_NTPC_10th_July_2023.jpg"
+                         class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="row py-4  primary-pattern">
+            <div class="col-md-4 py-3">
+                <div class="card">
+                    <a href="/citizenservices" class="text-decoration-none">
+                        <div class="card-body">
+                            <div class="row py-3">
+                                <div class="col-3">
+                                    <img src="/images/people.png" alt="business icon" class="img-fluid my-auto">
+                                </div>
+                                <div class="col-9">
+                                    <span class="d-inline-block mb-1 ms-3 w-100 fs-1 fw-bold" th:text="${totalCitizenService}">52</span>
+                                    <h4 class="ms-3">Citizen Services</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 py-3">
+                <div class="card">
+                    <a href="/businessservices" class="text-decoration-none">
+                        <div class="card-body">
+                            <div class="row py-3">
+                                <div class="col-3">
+                                    <img src="/images/industrial.png" alt="business icon" class="img-fluid my-auto">
+                                </div>
+                                <div class="col-9">
+                                    <span class="d-inline-block mb-1 ms-3 w-100 fs-1 fw-bold" th:text="${totalBusinessService}">185</span>
+                                    <h4 class="ms-3">Business Services</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 py-3">
+                <div class="card">
+                    <a href="/businessservices" class="text-decoration-none">
+                        <div class="card-body">
+                            <div class="row py-3">
+                                <div class="col-3">
+                                    <img src="/images/service.png" alt="business icon" class="img-fluid my-auto">
+                                </div>
+                                <div class="col-9">
+                                    <span class="d-inline-block mb-1 ms-3 w-100 fs-1 fw-bold" th:text="${totalOtherService}">18</span>
+                                    <h4 class="ms-3">Other Services</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5 ">
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+
+                    <div class="row">
+                        <div class="col-lg-9 col-md-6 mb-3">
+                            <input autocomplete="off" type="search" list="services" class="form-rounded" id="search_text"
+                                name="service_name" placeholder=" Looking for a particular service? Search here...">
+                            <datalist id="services">
+                                <th:block th:each="service : ${services}">
+                                    <option th:attr="value=${service.name}"></option>
+                                </th:block>
+                            </datalist>
+                        </div>
+                        <div class="col-lg-3 col-md-5 text-centre">
+                            <a class="btn btn-rounded btn-success" href="/services">
+                                Search
+                            </a>
+                            <a class="btn btn-rounded btn-danger" href="/services">
+                                Explore All
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    &lt;!&ndash;    ===&ndash;&gt;-->
+<!--        <a href="#" class="card1 credentialing">-->
+<!--            <div class="overlay"></div>-->
+<!--            <div class="circle">-->
+
+
+
+<!--            </div>-->
+<!--            <p>Track Application</p>-->
+<!--        </a>-->
+<!--        <a href="#" class="card1 wallet">-->
+<!--            <div class="overlay"></div>-->
+<!--            <div class="circle">-->
+
+<!--            </div>-->
+<!--            <p>Wallet</p>-->
+<!--        </a>-->
+
+<!--&lt;!&ndash;====&ndash;&gt;-->
+
+
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="row gx-4 gy-4 justify-content-center">
+                        <div class="col-md-5">
+                            <div class="card trackingApplication">
+                                <a href="trackstatus" class="text-decoration-none">
+                                    <div class="card-body">
+                                        <div class="row py-3">
+                                            <div class="col-4">
+                                                <img src="/images/tracking.png" alt="tracking icon" class="rounded-circle shadow-lg img-fluid my-auto bg-white">
+                                            </div>
+                                            <div class="col-8 pt-3 d-flex align-items-center">
+                                                <h4 class="ms-3 text-dark">Track Application</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card loginCard">
+                                <a href="https://megedistrict.gov.in/resources/homePage/17/login.html" class="text-decoration-none">
+                                    <div class="card-body">
+                                        <div class="row py-3">
+                                            <div class="col-4">
+                                                <img src="/images/account.png" alt="account icon" class="img-fluid my-auto rounded-circle shadow-lg bg-white">
+                                            </div>
+                                            <div class="col-8 pt-3 d-flex align-items-center">
+                                                <h4 class="ms-3">e-District Login</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-5 section-bg-light">
+            <div class="col-md-12">
+                <h2 class="text-center text-uppercase my-3 pb-5 "> New Services</h2>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="/images/industry.jpg" class="card-img-top bg-dark"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Service Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="/images/agriculture.jpg" class="card-img-top bg-dark "
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Service Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="/images/transport.jpg" class="card-img-top bg-dark"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Service Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="/images/power.jpg" class="card-img-top bg-dark"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Service Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid py-3 section-bg-light">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center text-uppercase my-3 pb-5">Top Services</h2>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card">
+                        <img src="/images/power.jpg" class="card-img-top bg-dark h-25" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Service Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card">
+                        <img src="/images/transport.jpg" class="card-img-top bg-dark" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Service Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card">
+                        <img src="/images/agriculture.jpg" class="card-img-top bg-dark"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Service Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card">
+                        <img src="/images/industry.jpg" class="card-img-top bg-dark"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Service Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-rounded btn-primary">Apply</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more col-md-3 columns for additional services -->
+            </div>
+        </div>
+
+<!--        <div class="row py-3 section-bg-light">-->
+<!--            <div class="col-md-12">-->
+<!--                <h2 class="text-center text-uppercase my-3 pb-5">Top Services</h2>-->
+<!--            </div>-->
+
+
+
+            <!--            <div class="col-md-3 mb-sm-2">-->
+<!--                <div class="card">-->
+<!--                    <img src="/images/power.jpg" class="card-img-top bg-dark"-->
+<!--                        alt="...">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Service Name</h5>-->
+<!--                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                            card's content.</p>-->
+<!--                        <div class="text-center">-->
+<!--                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3">-->
+<!--                <div class="card">-->
+<!--                    <img src="/images/transport.jpg" class="card-img-top bg-dark"-->
+<!--                        alt="...">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Service Name</h5>-->
+<!--                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                            card's content.</p>-->
+<!--                        <div class="text-center">-->
+<!--                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-3">-->
+<!--                <div class="card">-->
+<!--                    <img src="/images/agriculture.jpg" class="card-img-top bg-dark"-->
+<!--                        alt="...">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Service Name</h5>-->
+<!--                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                            card's content.</p>-->
+<!--                        <div class="text-center">-->
+<!--                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-3">-->
+<!--                <div class="card">-->
+<!--                    <img src="/images/industry.jpg" class="card-img-top bg-dark"-->
+<!--                        alt="...">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Service Name</h5>-->
+<!--                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                            card's content.</p>-->
+<!--                        <div class="text-center">-->
+<!--                            <a href="#" class="btn btn-rounded btn-primary">Apply</a>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+    </main>
+</html>
