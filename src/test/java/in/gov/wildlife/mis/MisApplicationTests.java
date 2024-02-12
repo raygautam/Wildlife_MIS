@@ -1,4 +1,4 @@
-package com.wildlife.mis;
+package in.gov.wildlife.mis;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

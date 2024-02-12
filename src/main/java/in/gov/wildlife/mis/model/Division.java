@@ -1,4 +1,4 @@
-package com.wildlife.mis.model;
+package in.gov.wildlife.mis.model;
 
 import jakarta.persistence.*;
 
