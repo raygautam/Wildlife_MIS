@@ -3,7 +3,7 @@ package in.gov.wildlife.mis.credential.authentication.jwt;
 import in.gov.wildlife.mis.credential.authentication.AppUserRepository;
 import in.gov.wildlife.mis.credential.authentication.AppUserServiceImpl;
 import in.gov.wildlife.mis.credential.authentication.UserService;
-import in.gov.wildlife.mis.model.AppUser;
+import in.gov.wildlife.mis.domian.AppUser;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

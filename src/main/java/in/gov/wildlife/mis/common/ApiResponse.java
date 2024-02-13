@@ -1,11 +1,13 @@
 package in.gov.wildlife.mis.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
+@Getter
 public class ApiResponse implements Serializable {
     public static final long serialVersionUID = -612811614311755079L;
     private Integer status;
@@ -54,18 +56,10 @@ public class ApiResponse implements Serializable {
                 + getTraceId() + ">";
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
     public ApiResponse setStatus(Integer status) {
         this.status = status;
 
         return this;
-    }
-
-    public java.lang.Error getError() {
-        return error;
     }
 
     public ApiResponse setError(java.lang.Error error) {
@@ -74,20 +68,12 @@ public class ApiResponse implements Serializable {
         return this;
     }
 
-    public Object getData() {
-        return data;
-    }
-
     public ApiResponse setData(Object data) {
         this.data = data;
 
         return this;
     }
 
-
-    public String getTraceId() {
-        return traceId;
-    }
 
     public void setTraceId(String traceId) {
         this.traceId = traceId;

@@ -1,6 +1,6 @@
 package in.gov.wildlife.mis.credential.authentication.jwt;
 
-import in.gov.wildlife.mis.model.AppUser;
+import in.gov.wildlife.mis.domian.AppUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

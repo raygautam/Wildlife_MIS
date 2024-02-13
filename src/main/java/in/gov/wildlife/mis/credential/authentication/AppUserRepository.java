@@ -1,6 +1,6 @@
 package in.gov.wildlife.mis.credential.authentication;
 
-import in.gov.wildlife.mis.model.AppUser;
+import in.gov.wildlife.mis.domian.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

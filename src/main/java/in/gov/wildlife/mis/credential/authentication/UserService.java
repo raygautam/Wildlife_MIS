@@ -1,6 +1,6 @@
 package in.gov.wildlife.mis.credential.authentication;
 
-import in.gov.wildlife.mis.model.AppUser;
+import in.gov.wildlife.mis.domian.AppUser;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
